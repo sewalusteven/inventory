@@ -6,7 +6,7 @@ require("dotenv").config()
 global.__dirname = __dirname;
 const mongoose = require("mongoose").default;
 
-mongoose.connect("mongodb+srv://sewalusteven:G8qyXiSIl2IkMwZL@equipmentcluster.vudu44s.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(process.env.DB_URL)
     .then(() => console.log("DB Connected"));
 
 const app = express();
