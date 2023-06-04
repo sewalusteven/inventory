@@ -4,14 +4,18 @@ const cors = require("cors")
 require("dotenv").config()
 
 global.__dirname = __dirname;
+const mongoose = require("mongoose").default;
+
+mongoose.connect("mongodb+srv://sewalusteven:G8qyXiSIl2IkMwZL@equipmentcluster.vudu44s.mongodb.net/?retryWrites=true&w=majority")
+    .then(() => console.log("DB Connected"));
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const equipment = require('./api/equipment');
+const items = require('./api/items');
 
-app.use('/api/v1/equipment', equipment);
+app.use('/api/v1/items', items);
 
 const port = process.env.PORT || 3000;
 
