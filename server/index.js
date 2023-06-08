@@ -12,6 +12,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const keyCheck = (req, res, next) => {
+    const serviceKey = req.header('service-key');
+    if(!serviceKey){
+        res.status(500).send("invalid service key");
+    }
+    //TODO: validate service key
+    next();
+}
+
+app.use(keyCheck)
+
 const items = require('./api/items');
 
 app.use('/api/v1/items', items);
