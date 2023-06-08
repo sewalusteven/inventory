@@ -3,7 +3,6 @@ const bodyParser = require("body-parser")
 const cors = require("cors")
 require("dotenv").config()
 
-global.__dirname = __dirname;
 const mongoose = require("mongoose").default;
 
 mongoose.connect(process.env.DB_URL)

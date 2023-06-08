@@ -13,6 +13,4 @@ async function fetchAll() {
 async function findById(id) {
     return Item.findById(id);
  }
-
-
 module.exports = { addItem ,fetchAll, findById}
