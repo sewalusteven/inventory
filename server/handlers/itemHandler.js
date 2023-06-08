@@ -13,4 +13,11 @@ async function fetchAll() {
 async function findById(id) {
     return Item.findById(id);
  }
-module.exports = { addItem ,fetchAll, findById}
+async function update(id, item) {
+    return Item.findByIdAndUpdate(id, item);
+ }
+
+async function deleteItem(id) {
+   return  Item.findByIdAndDelete(id);
+ }
+module.exports = { addItem ,fetchAll, findById, update, deleteItem}
